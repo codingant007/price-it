@@ -10,6 +10,7 @@ var config = {
     // If you are on Microsoft Azure, you need this:
     options: {encrypt: true, database: 'geoprix'}
 };
+var connection = new Connection(config);
 
 var port = process.env.PORT || 1337;
 http.createServer(function(req,res) {
