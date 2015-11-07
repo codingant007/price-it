@@ -21,8 +21,33 @@ var port = process.env.PORT || 1337;
 http.createServer(function(req,res) {
 	res.writeHead(200, {'Content-Type':'text/html'});
 
-	res.end('Hello World \n' + rslt + ' good');
 
 }).listen(port);
 console.log('Server running at http://localhost:8080');
 
+function createTableQuery(res) {
+    request = new Request("CREATE TABLE Persons(PersonID int,LastName varchar(255),FirstName varchar(255),Address varchar(255),City varchar(255));", function(err) {
+    if (err) {
+        console.log(err);}
+    });
+    var result = "";
+    request.on('row', function(columns) {
+        columns.forEach(function(column) {
+          if (column.value === null) {
+            console.log('NULL');
+          } else {
+            result+= column.value + " ";
+          }
+        });
+        console.log(result);
+        res.write(result);
+        result ="";
+    });
+
+    request.on('done', function(rowCount, more) {
+    	res.write(' ' + rowCount + ' rows returned');
+    	console.log(rowCount + ' rows returned');
+    	res.end('Hello World \n' + rslt + ' good');
+    });
+    connection.execSql(request);
+}
