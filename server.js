@@ -48,7 +48,7 @@ http.createServer(function(req,res) {
 		var result = {};
 		result.queryResponse = makeQuery(params);
 		res.writeHead({'Content-Type':'text/html'});
-		res.write(JSON.stringify(result));
+		res.write("result --- "+JSON.stringify(result));
 		res.end();
 	}
 	else
