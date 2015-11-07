@@ -1,6 +1,6 @@
 var http = require('http');
-var qs = require('query-string');
-var url = require('url');
+//var qs = require('query-string');
+//var url = require('url');
 
 var Connection = require('tedious').Connection;
 var config = {
@@ -13,7 +13,7 @@ var config = {
 
 var connection = new Connection(config);
 
-
+/*
 function makeQuery(params){
 	result = {};
 	connection.on('connect', function(err) {
@@ -39,7 +39,7 @@ function makeQuery(params){
 	    return result;
 	});
 }
-
+*/
 
 var port = process.env.PORT || 1337;
 http.createServer(function(req,res) {
@@ -65,7 +65,7 @@ console.log("Server running on port 1337");
 
 
 
-
+/*
 
 var Request = require('tedious').Request;
 var TYPES = require('tedious').TYPES;
@@ -117,3 +117,5 @@ function showTablesQuery() {
     });
     connection.execSql(request);
 }
+
+*/
