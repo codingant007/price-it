@@ -20,6 +20,8 @@ connection.on('connect', function(err) {
 	console.log(err);
 // If no error, then good to proceed.
     console.log("Connected");
+    executeStatement();
+    console.log("executed");
 });
 
 
@@ -27,7 +29,7 @@ var Request = require('tedious').Request;
 var TYPES = require('tedious').TYPES;
 
 function executeStatement() {
-    request = new Request("", function(err) {
+    request = new Request("CREATE TABLE Persons(PersonID int,LastName varchar(255),FirstName varchar(255),Address varchar(255),City varchar(255));", function(err) {
     if (err) {
         console.log(err);} 
     });
