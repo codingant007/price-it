@@ -1,6 +1,6 @@
 var http = require('http');
-//var qs = require('query-string');
-//var url = require('url');
+var qs = require('query-string');
+var url = require('url');
 
 var Connection = require('tedious').Connection;
 var config = {
