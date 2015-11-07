@@ -46,9 +46,9 @@ http.createServer(function(req,res) {
 	if(req.method == "GET"){
 		var params = qs.parse(url.parse(req.url).query);
 		var result = {};
-		result.queryResponse = makeQuery(params);
 		res.writeHead({'Content-Type':'text/html'});
 		res.write("result --- "+JSON.stringify(result));
+		//result.queryResponse = makeQuery(params);
 		//res.write("result --- ");
 		
 		res.end();
@@ -61,10 +61,6 @@ http.createServer(function(req,res) {
 	}
 }).listen(port);
 console.log("Server running on port 1337");
-
-
-
-
 
 
 var Request = require('tedious').Request;
