@@ -10,12 +10,18 @@ var config = {
     // If you are on Microsoft Azure, you need this:
     options: {encrypt: true, database: 'geoprix'}
 };
+var result = '';
 var connection = new Connection(config);
-
+connection.on('connect', function(err) {
+       if(err){
+           result = JSON.stringify(err);
+        }
+    });
 var port = process.env.PORT || 1337;
 http.createServer(function(req,res) {
 	res.writeHead(200, {'Content-Type':'text/html'});
-	res.end('Hello World\n');
+
+	res.end('Hello World \n' + result);
 
 }).listen(port);
 console.log('Server running at http://localhost:8080');
