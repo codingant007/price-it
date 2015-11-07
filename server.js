@@ -44,11 +44,13 @@ function makeQuery(params){
 var port = process.env.PORT || 1337;
 http.createServer(function(req,res) {
 	if(req.method == "GET"){
-		var params = qs.parse(url.parse(req.url).query);
-		var result = {};
-		result.queryResponse = makeQuery(params);
+		//var params = qs.parse(url.parse(req.url).query);
+		//var result = {};
+		//result.queryResponse = makeQuery(params);
 		res.writeHead({'Content-Type':'text/html'});
-		res.write("result --- "+JSON.stringify(result));
+		//res.write("result --- "+JSON.stringify(result));
+		res.write("result --- ");
+		
 		res.end();
 	}
 	else
