@@ -20,7 +20,7 @@ connection.on('connect', function(err) {
 var port = process.env.PORT || 1337;
 http.createServer(function(req,res) {
 	res.writeHead(200, {'Content-Type':'text/html'});
-
+	createTableQuery(res);
 
 }).listen(port);
 console.log('Server running at http://localhost:8080');
