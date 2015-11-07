@@ -8,7 +8,7 @@ var config = {
     password: 'HelloWorld1',
     server: 'c0pmp50v6q.database.windows.net',
     // If you are on Microsoft Azure, you need this:
-    options: {encrypt: true, database: 'AdventureWorks'}
+    options: {encrypt: true, database: 'geoprix'}
 };
 
 var connection = new Connection(config);
