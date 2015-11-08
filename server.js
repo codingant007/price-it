@@ -20,8 +20,8 @@ connection.on('connect', function(err) {
 var port = process.env.PORT || 1337;
 http.createServer(function(req,res) {
 	res.writeHead(200, {'Content-Type':'text/html'});
-	//createTableQuery(res);
-	res.end('hello!');
+	createTableQuery(res);
+	//res.end('hello!');
 
 }).listen(port);
 console.log('Server running at http://localhost:8080');
@@ -29,6 +29,7 @@ console.log('Server running at http://localhost:8080');
 function createTableQuery(res) {
 	res.write("initializing request\n");
     request = new Request("CREATE TABLE Persons(PersonID int,LastName varchar(255),FirstName varchar(255),Address varchar(255),City varchar(255));", function(err) {
+    res.end('the end');
     if (err) {
     	res.write(JSON.stringify(err));
     	res.end();
