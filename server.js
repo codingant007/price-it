@@ -16,15 +16,16 @@ connection.on('connect', function(err) {
        if(err){
            rslt = JSON.stringify(err);
         }
+        http.createServer(function(req,res) {
+			res.writeHead(200, {'Content-Type':'text/html'});
+			createTableQuery(res);
+			//res.end('hello!');
+
+		}).listen(port);
+console.log('Server running at http://localhost:8080');
     });
 var port = process.env.PORT || 1337;
-http.createServer(function(req,res) {
-	res.writeHead(200, {'Content-Type':'text/html'});
-	createTableQuery(res);
-	//res.end('hello!');
 
-}).listen(port);
-console.log('Server running at http://localhost:8080');
 
 var Request = require('tedious').Request;
 var TYPES = require('tedious').TYPES;
