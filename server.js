@@ -32,7 +32,6 @@ var TYPES = require('tedious').TYPES;
 function createTableQuery(res) {
 	res.write("initializing request\n");
     request = new Request("CREATE TABLE Persons(PersonID int,LastName varchar(255),FirstName varchar(255),Address varchar(255),City varchar(255));", function(err) {
-    res.end('the end');
     if (err) {
     	res.write(JSON.stringify(err));
     	res.end();
